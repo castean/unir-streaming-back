@@ -3,6 +3,7 @@ const fs = require('fs');
 const cors = require('cors');
 const path = require('path');
 const app = express();
+const port = 5000;
 
 var allowedOrigins = ['http://localhost:3000',
                       'https://reverent-leakey-90670b.netlify.app'];
@@ -28,7 +29,7 @@ app.get('/video', (req, res) => {
 const Videos = require('./routes/Videos')
 app.use('/videos', Videos)
 
-app.listen(5000, () => {
+app.listen(process.env.PORT || port, () => {
     console.log('Escuchando en el puerto 5000!')
 }); 
 
